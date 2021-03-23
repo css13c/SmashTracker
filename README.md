@@ -5,6 +5,8 @@ This application is currently under development.
 This was originally a C# app, but I'm taking another crack at it using Vue and creating a leaner version. I plan to only support Melee for now, but will build the application to be expandable later, to not only other Smash Bros. games, but other fighting games as well, such as Street Fighter and Mortal Kombat.
 
 
+
+
 ## Project Setup
 ```
 yarn install
@@ -12,12 +14,12 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+yarn electron:build
 ```
 
 ### Run your unit tests
