@@ -3,8 +3,12 @@ module.exports = {
     loaderOptions: {
       scss: {
         prependData: `
-          @import "styles/global.scss";
+          @use "styles/theme as theme";
         `,
+        implementation: require("sass"),
+        sassOptions: {
+          fiber: require("fibers"),
+        },
       },
     },
   },

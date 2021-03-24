@@ -1,18 +1,17 @@
 @use "sass:map";
 @use "sass:color";
+@use "colors" as *;
 
-@import "./colors";
+$-primary-base: #162dae;
+$-secondary-base: #ffb700;
+$-dark-bg: #121212;
 
-$primary-base: #162dae;
-$secondary-base: #ffb700;
-$dark-bg: #121212;
-
-$theme: (
+$-theme: (
     "light": (
-        "primary": $primary-base,
-        "primary-variant": scale($primary-base, $lightness: -20%),
-        "secondary": $secondary-base,
-        "secondary-variant": scale($secondary-base, $lightness: -20%),
+        "primary": $-primary-base,
+        "primary-variant": scale-color($-primary-base, $lightness: -20%),
+        "secondary": $-secondary-base,
+        "secondary-variant": scale-color($-secondary-base, $lightness: -20%),
         "background": $white,
         "surface": $white,
         "error": map-get($red, 800),
@@ -23,11 +22,11 @@ $theme: (
         "on-error": $white,
     ),
     "dark": (
-        "primary": scale($primary-base, $lightness: 30%),
-        "primary-variant": $primary-base,
-        "secondary": $secondary-base,
-        "background": $dark-bg,
-        "surface": $dark-bg,
+        "primary": scale-color($-primary-base, $lightness: 30%),
+        "primary-variant": $-primary-base,
+        "secondary": $-secondary-base,
+        "background": $-dark-bg,
+        "surface": $-dark-bg,
         "error": map-get($red, 300),
         "on-primary": $black,
         "on-secondary": $black,
@@ -38,42 +37,42 @@ $theme: (
 );
 
 @function get-color($theme-name, $color-type) {
-    @return map-get(map-get($theme, $theme-name), $color-type);
+    @return map-get(map-get($-theme, $theme-name), $color-type);
 }
 
 // Sets the background color and content color based on the theme type (light or dark) for each
 // color type.
-@mixin primary($type) {
+@mixin primary($type:"light") {
     background-color: get-color($type, "primary");
     color: get-color($type, "on-primary");
 }
 
-@mixin primary-variant($type) {
+@mixin primary-variant($type:"light") {
     background-color: get-color($type, "primary-variant");
     color: get-color($type, "on-primary");
 }
 
-@mixin secondary($type) {
+@mixin secondary($type:"light") {
     background-color: get-color($type, "secondary");
     color: get-color($type, "on-secondary");
 }
 
-@mixin secondary-variant($type) {
+@mixin secondary-variant($type:"light") {
     background-color: get-color($type, "secondary-variant");
     color: get-color($type, "on-secondary");
 }
 
-@mixin background($type) {
+@mixin background($type:"light") {
     background-color: get-color($type, "background");
     color: get-color($type, "on-background");
 }
 
-@mixin surface($type) {
+@mixin surface($type:"light") {
     background-color: get-color($type, "surface");
     color: get-color($type, "on-surface");
 }
 
-@mixin error($type) {
+@mixin error($type:"light") {
     background-color: get-color($type, "error");
     color: get-color($type, "on-error");
 }
