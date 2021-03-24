@@ -3,11 +3,12 @@ module.exports = {
     loaderOptions: {
       scss: {
         prependData: `
-          @use "styles/theme as theme";
+          @use "theme" as theme;
         `,
         implementation: require("sass"),
         sassOptions: {
           fiber: require("fibers"),
+          includePaths: ["src/styles"],
         },
       },
     },
