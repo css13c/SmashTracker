@@ -8,10 +8,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    player: {
-      name: String,
-
-    }
+    player: Object
   },
   setup(props) {
     

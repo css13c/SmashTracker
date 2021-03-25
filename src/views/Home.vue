@@ -5,13 +5,10 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import PlayerInfo from "@/components/PlayerInfo.vue";
+import { defineComponent } from "node_modules/vue/dist/vue";
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
+export default defineComponent({
+  components: { PlayerInfo },
+});
 </script>
